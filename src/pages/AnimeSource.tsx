@@ -20,9 +20,9 @@ const animeData = [
     episodes: 8,
     studio: 'A-1 Pictures',
     description: 'In a world where hunters must battle deadly monsters to protect humanity, Sung Jin-Woo, the weakest hunter of all mankind, finds himself in a mysterious dungeon which grants him an extraordinary power.',
-    trailerUrl: 'https://www.youtube.com/embed/0IlRr3hNQEw',
+    trailerUrl: 'https://www.youtube.com/embed/0IlRr3hNQEw?autoplay=1',
     year: 2024,
-    status: 'Airing'
+    status: 'Airing' as const
   },
   {
     id: 2,
@@ -34,9 +34,9 @@ const animeData = [
     episodes: 44,
     studio: 'ufotable',
     description: 'A youth begins a quest to fight demons and save his sister after finding his family slaughtered and his sister turned into a demon.',
-    trailerUrl: 'https://www.youtube.com/embed/VQGCKyvzIM4',
+    trailerUrl: 'https://www.youtube.com/embed/VQGCKyvzIM4?autoplay=1',
     year: 2019,
-    status: 'Airing'
+    status: 'Airing' as const
   },
   {
     id: 3,
@@ -48,9 +48,9 @@ const animeData = [
     episodes: 48,
     studio: 'MAPPA',
     description: "A boy swallows a cursed talisman - the finger of a demon - and becomes cursed himself. He enters a shaman school to be able to locate the demon's other body parts and thus exorcise himself.",
-    trailerUrl: 'https://www.youtube.com/embed/eGSL-l95VXw',
+    trailerUrl: 'https://www.youtube.com/embed/eGSL-l95VXw?autoplay=1',
     year: 2020,
-    status: 'Airing'
+    status: 'Airing' as const
   },
   {
     id: 4,
@@ -62,9 +62,9 @@ const animeData = [
     episodes: 87,
     studio: 'Wit Studio, MAPPA',
     description: 'After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.',
-    trailerUrl: 'https://www.youtube.com/embed/LHtdKWJdif4',
+    trailerUrl: 'https://www.youtube.com/embed/LHtdKWJdif4?autoplay=1',
     year: 2013,
-    status: 'Finished'
+    status: 'Finished' as const
   },
   {
     id: 5,
@@ -76,9 +76,9 @@ const animeData = [
     episodes: 138,
     studio: 'Bones',
     description: 'A superhero-loving boy without any powers is determined to enroll in a prestigious hero academy and learn what it really means to be a hero.',
-    trailerUrl: 'https://www.youtube.com/embed/EPVkcwyLQQ8',
+    trailerUrl: 'https://www.youtube.com/embed/EPVkcwyLQQ8?autoplay=1',
     year: 2016,
-    status: 'Airing'
+    status: 'Airing' as const
   },
   {
     id: 6,
@@ -90,9 +90,9 @@ const animeData = [
     episodes: 12,
     studio: 'MAPPA',
     description: 'Following a betrayal, a young man left for dead is reborn as a powerful devil-human hybrid after merging with his pet devil and is soon enlisted into an organization dedicated to hunting devils.',
-    trailerUrl: 'https://www.youtube.com/embed/q15CRdE5Bv0',
+    trailerUrl: 'https://www.youtube.com/embed/q15CRdE5Bv0?autoplay=1',
     year: 2022,
-    status: 'Finished'
+    status: 'Finished' as const
   }
 ];
 
@@ -196,7 +196,7 @@ const getAnimeById = async (id: number): Promise<AnimeDetails | null> => {
       episodes: 220,
       studio: 'Pierrot',
       description: 'Naruto Uzumaki, a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, the village\'s leader and strongest ninja.',
-      trailerUrl: 'https://www.youtube.com/embed/j2hiC9BmJlQ',
+      trailerUrl: 'https://www.youtube.com/embed/j2hiC9BmJlQ?autoplay=1',
       year: 2002,
       status: 'Finished'
     },
@@ -210,7 +210,7 @@ const getAnimeById = async (id: number): Promise<AnimeDetails | null> => {
       episodes: 1000,
       studio: 'Toei Animation',
       description: 'Follows the adventures of Monkey D. Luffy and his pirate crew in order to find the greatest treasure ever left by the legendary Pirate, Gold Roger. The famous mystery treasure named "One Piece".',
-      trailerUrl: 'https://www.youtube.com/embed/S8_YwFLCh4U',
+      trailerUrl: 'https://www.youtube.com/embed/S8_YwFLCh4U?autoplay=1',
       year: 1999,
       status: 'Airing'
     },
@@ -224,7 +224,7 @@ const getAnimeById = async (id: number): Promise<AnimeDetails | null> => {
       episodes: 291,
       studio: 'Toei Animation',
       description: 'After learning that he is from another planet, a warrior named Goku and his friends are prompted to defend it from an onslaught of extraterrestrial enemies.',
-      trailerUrl: 'https://www.youtube.com/embed/sF8D3OziGsc',
+      trailerUrl: 'https://www.youtube.com/embed/sF8D3OziGsc?autoplay=1',
       year: 1989,
       status: 'Finished'
     },
@@ -238,7 +238,7 @@ const getAnimeById = async (id: number): Promise<AnimeDetails | null> => {
       episodes: 37,
       studio: 'Madhouse',
       description: 'An intelligent high school student goes on a secret crusade to eliminate criminals from the world after discovering a notebook capable of killing anyone whose name is written into it.',
-      trailerUrl: 'https://www.youtube.com/embed/NlJZ-YgAt-c',
+      trailerUrl: 'https://www.youtube.com/embed/NlJZ-YgAt-c?autoplay=1',
       year: 2006,
       status: 'Finished'
     },
@@ -252,7 +252,7 @@ const getAnimeById = async (id: number): Promise<AnimeDetails | null> => {
       episodes: 64,
       studio: 'Bones',
       description: 'Two brothers search for a Philosopher\'s Stone after an attempt to revive their deceased mother goes wrong and leaves them in damaged physical forms.',
-      trailerUrl: 'https://www.youtube.com/embed/--IcmZkvL0Q',
+      trailerUrl: 'https://www.youtube.com/embed/--IcmZkvL0Q?autoplay=1',
       year: 2009,
       status: 'Finished'
     }
@@ -287,7 +287,7 @@ const AnimeCard = ({ anime, onClick }: { anime: AnimeSearchResult, onClick: () =
         )}
       </div>
       <div className="p-4">
-        <h3 className="font-bold text-lg mb-1">{anime.title}</h3>
+        <h3 className="font-bold text-lg mb-1 text-gray-800 dark:text-white">{anime.title}</h3>
         <div className="flex flex-wrap gap-1 mb-2">
           {anime.genres.slice(0, 3).map(genre => (
             <span key={genre} className="text-xs bg-anime-purple/10 text-anime-purple px-2 py-0.5 rounded-full">
@@ -296,7 +296,7 @@ const AnimeCard = ({ anime, onClick }: { anime: AnimeSearchResult, onClick: () =
           ))}
         </div>
         <div className="mt-2 text-center">
-          <button className="w-full bg-anime-purple/10 hover:bg-anime-purple/20 text-anime-purple px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+          <button className="w-full bg-anime-purple hover:bg-anime-purple/90 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
             View Details
           </button>
         </div>
@@ -396,7 +396,7 @@ const AnimeSource = () => {
                 <span className="inline-block px-3 py-1 bg-anime-purple/10 text-anime-purple rounded-full text-sm font-medium mb-3">
                   Discover
                 </span>
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Anime Source</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">Anime Source</h1>
                 <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
                   Explore popular anime series and find your next favorite show
                 </p>
@@ -414,12 +414,12 @@ const AnimeSource = () => {
                   {/* Enhanced Search Bar */}
                   <div className="relative flex-grow">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <Search size={18} className="text-anime-gray" />
+                      <Search size={18} className="text-gray-500" />
                     </div>
                     <input
                       type="text"
                       placeholder="Search for any anime..."
-                      className="pl-10 py-3 pr-4 w-full rounded-lg border border-gray-200 focus:border-anime-purple focus:ring-0 transition-colors"
+                      className="pl-10 py-3 pr-4 w-full rounded-lg border border-gray-300 focus:border-anime-purple focus:ring-0 transition-colors text-gray-800 bg-white"
                       value={searchInput}
                       onChange={(e) => setSearchInput(e.target.value)}
                       onKeyDown={(e) => {
@@ -542,7 +542,7 @@ const AnimeSource = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="glass-card rounded-xl p-8"
             >
-              <h2 className="text-2xl font-bold mb-4">Legal Streaming Platforms</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Legal Streaming Platforms</h2>
               <p className="text-gray-700 dark:text-gray-300 mb-6">
                 Support the anime industry by watching on these official platforms:
               </p>
@@ -551,7 +551,7 @@ const AnimeSource = () => {
                   <a
                     key={platform}
                     href="#"
-                    className="glass-effect p-4 rounded-lg text-center hover:bg-anime-purple/5 transition-colors"
+                    className="glass-effect p-4 rounded-lg text-center hover:bg-anime-purple/5 transition-colors text-gray-800 dark:text-white"
                   >
                     <span className="block font-medium">{platform}</span>
                   </a>

@@ -38,7 +38,7 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-card py-2' : 'bg-transparent py-4'
+        scrolled ? 'glass-card py-2' : 'bg-anime-dark/80 py-4'
       }`}
     >
       <div className="container flex justify-between items-center">
@@ -60,7 +60,7 @@ const Navbar = () => {
                 `text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:rounded after:transition-all after:duration-300 ${
                   isActive 
                     ? 'text-anime-purple after:bg-anime-purple after:w-full' 
-                    : 'text-foreground hover:text-anime-purple after:bg-anime-purple after:w-0 hover:after:w-full'
+                    : 'text-white hover:text-anime-purple after:bg-anime-purple after:w-0 hover:after:w-full'
                 }`
               }
             >
@@ -71,7 +71,7 @@ const Navbar = () => {
 
         {/* Mobile menu button */}
         <button 
-          className="md:hidden flex items-center text-foreground"
+          className="md:hidden flex items-center text-white"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -81,7 +81,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div 
-        className={`fixed inset-0 z-40 bg-white dark:bg-anime-dark glass-effect backdrop-blur-xl md:hidden transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-40 bg-anime-dark/95 glass-effect backdrop-blur-xl md:hidden transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ top: '60px' }}
@@ -95,7 +95,7 @@ const Navbar = () => {
                 `text-xl font-medium transition-colors ${
                   isActive 
                     ? 'text-anime-purple' 
-                    : 'text-foreground hover:text-anime-purple'
+                    : 'text-white hover:text-anime-purple'
                 }`
               }
             >

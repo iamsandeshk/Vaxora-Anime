@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 import { formatTime, getTimeRemaining } from '@/lib/countdownUtil';
 import { toast } from 'sonner';
 import PageTransition from '@/components/PageTransition';
+import { Bell, Check } from 'lucide-react';
 
 const Home = () => {
   // Countdown timer state - Updated to March 1, 2025
   const soloLevelingDate = new Date('2025-03-01T22:00:00');
   const [timeRemaining, setTimeRemaining] = useState(getTimeRemaining(soloLevelingDate));
+  const [reminderSet, setReminderSet] = useState(false);
 
   // Poll state - using localStorage to persist votes
   const [selectedOption, setSelectedOption] = useState<string | null>(
@@ -57,6 +59,27 @@ const Home = () => {
     toast.success(`You voted: ${option}`);
   };
 
+  // Set reminder function
+  const handleSetReminder = () => {
+    if (!reminderSet) {
+      // In a real app, this would integrate with a notification API
+      // For now, we'll just simulate it with localStorage
+      localStorage.setItem('reminder-solo-leveling', 'true');
+      setReminderSet(true);
+      toast.success("Reminder set for Solo Leveling Season 2!");
+    } else {
+      localStorage.removeItem('reminder-solo-leveling');
+      setReminderSet(false);
+      toast.success("Reminder removed");
+    }
+  };
+
+  // Check if reminder is already set
+  useEffect(() => {
+    const reminderStatus = localStorage.getItem('reminder-solo-leveling') === 'true';
+    setReminderSet(reminderStatus);
+  }, []);
+
   // Calculate percentage
   const getPercentage = (value: number) => {
     return Math.round((value / totalVotes) * 100);
@@ -98,7 +121,7 @@ const Home = () => {
                   id="teaser-video" 
                   className="video-player w-full aspect-video rounded-lg"
                   src="https://drive.google.com/file/d/1tptZ3Uiwnrj0QXXcZJljAmyi7TtyPUFP/preview" 
-                  allow="autoplay"
+                  allow="autoplay; fullscreen"
                   ref={videoRef}
                 ></iframe>
               </motion.div>
@@ -111,7 +134,7 @@ const Home = () => {
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold mb-2">Next Episode Countdown</h2>
+                <h2 className="text-3xl font-bold mb-2 text-black dark:text-white">Next Episode Countdown</h2>
                 <p className="text-lg font-medium text-anime-purple">
                   Solo Leveling Season 2 - Premiering Saturday, March 1st, 2025 at 10:00 PM
                 </p>
@@ -132,21 +155,38 @@ const Home = () => {
                     <div className="text-3xl md:text-4xl font-bold text-anime-purple">
                       {formatTime(item.value)}
                     </div>
-                    <div className="text-sm font-medium text-gray-700 dark:text-gray-300 mt-2">
+                    <div className="text-sm font-medium text-gray-800 dark:text-gray-200 mt-2">
                       {item.label}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Added season information */}
+              {/* Added season information with working reminder button */}
               <div className="mt-10 text-center">
-                <p className="text-lg text-gray-700 dark:text-gray-300">
+                <p className="text-lg text-gray-800 dark:text-gray-200">
                   Join millions of fans awaiting the return of the Shadow Monarch in Season 2!
                 </p>
                 <div className="flex justify-center mt-4">
-                  <button className="bg-anime-purple hover:bg-anime-purple/90 text-white px-6 py-2 rounded-full transition-colors">
-                    Set Reminder
+                  <button 
+                    className={`flex items-center px-6 py-2.5 rounded-full transition-colors ${
+                      reminderSet 
+                        ? 'bg-green-500 hover:bg-green-600 text-white' 
+                        : 'bg-anime-purple hover:bg-anime-purple/90 text-white'
+                    }`}
+                    onClick={handleSetReminder}
+                  >
+                    {reminderSet ? (
+                      <>
+                        <Check size={18} className="mr-2" />
+                        Reminder Set
+                      </>
+                    ) : (
+                      <>
+                        <Bell size={18} className="mr-2" />
+                        Set Reminder
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
@@ -154,13 +194,13 @@ const Home = () => {
           </div>
         </section>
         
-        {/* Poll Section - Improved visibility */}
-        <section className="py-16 bg-gray-50 dark:bg-anime-dark/70">
+        {/* Poll Section - Improved visibility and contrast */}
+        <section className="py-16 bg-gray-100 dark:bg-anime-dark/80">
           <div className="container">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold mb-2">Community Poll</h2>
-                <p className="text-lg text-gray-700 dark:text-gray-300 font-medium">
+                <h2 className="text-3xl font-bold mb-2 text-black dark:text-white">Community Poll</h2>
+                <p className="text-lg text-gray-800 dark:text-gray-200 font-medium">
                   Do you think Sung Jin-Woo will defeat the Architect in the next episode?
                 </p>
               </div>
@@ -185,7 +225,7 @@ const Home = () => {
                         <span className={`font-medium text-lg ${isSelected ? 'text-anime-purple' : 'text-gray-800 dark:text-white'}`}>
                           {option}
                         </span>
-                        <span className="font-bold text-lg">
+                        <span className="font-bold text-lg text-gray-800 dark:text-white">
                           {percentage}%
                         </span>
                       </div>
@@ -199,7 +239,7 @@ const Home = () => {
                   );
                 })}
                 
-                <div className="text-center text-base font-medium text-gray-700 dark:text-gray-300 mt-4">
+                <div className="text-center text-base font-medium text-gray-800 dark:text-gray-200 mt-4">
                   {selectedOption 
                     ? `You voted: ${selectedOption}`
                     : "Click an option to vote"

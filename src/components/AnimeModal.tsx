@@ -120,13 +120,13 @@ const AnimeModal = ({ anime, isOpen, onClose }: AnimeModalProps) => {
                 {activeTab === 'overview' && (
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Synopsis</h3>
+                      <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Synopsis</h3>
                       <p className="text-gray-700 dark:text-gray-300">{anime.description}</p>
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <h3 className="text-lg font-semibold mb-2">Details</h3>
+                        <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Details</h3>
                         <ul className="space-y-2">
                           <li className="flex items-center text-gray-700 dark:text-gray-300">
                             <Clock size={16} className="mr-2 text-anime-purple" />
@@ -144,7 +144,7 @@ const AnimeModal = ({ anime, isOpen, onClose }: AnimeModalProps) => {
                       </div>
                       
                       <div>
-                        <h3 className="text-lg font-semibold mb-2">Genres</h3>
+                        <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Genres</h3>
                         <div className="flex flex-wrap gap-2">
                           {anime.genres.map(genre => (
                             <span 
@@ -168,6 +168,7 @@ const AnimeModal = ({ anime, isOpen, onClose }: AnimeModalProps) => {
                         className="w-full h-full"
                         allowFullScreen
                         title={`${anime.title} trailer`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       ></iframe>
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-white">
@@ -182,7 +183,7 @@ const AnimeModal = ({ anime, isOpen, onClose }: AnimeModalProps) => {
                 
                 {activeTab === 'episodes' && (
                   <div>
-                    <h3 className="text-lg font-semibold mb-4">Episode List</h3>
+                    <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Episode List</h3>
                     {anime.episodes > 0 ? (
                       <div className="space-y-3">
                         {Array.from({ length: Math.min(anime.episodes, 10) }, (_, i) => (
@@ -192,7 +193,7 @@ const AnimeModal = ({ anime, isOpen, onClose }: AnimeModalProps) => {
                           >
                             <div className="flex justify-between items-center">
                               <div>
-                                <span className="font-medium">Episode {i + 1}</span>
+                                <span className="font-medium text-gray-800 dark:text-white">Episode {i + 1}</span>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Title unavailable</p>
                               </div>
                               <button className="bg-anime-purple hover:bg-anime-purple/90 text-white px-3 py-1 rounded-full text-sm">

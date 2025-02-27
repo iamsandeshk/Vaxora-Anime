@@ -6,8 +6,8 @@ import { toast } from 'sonner';
 import PageTransition from '@/components/PageTransition';
 
 const Home = () => {
-  // Countdown timer state
-  const soloLevelingDate = new Date('2024-03-01T22:00:00');
+  // Countdown timer state - Updated to March 1, 2025
+  const soloLevelingDate = new Date('2025-03-01T22:00:00');
   const [timeRemaining, setTimeRemaining] = useState(getTimeRemaining(soloLevelingDate));
 
   // Poll state - using localStorage to persist votes
@@ -82,7 +82,7 @@ const Home = () => {
                 <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
                   Solo Leveling
                 </h1>
-                <p className="text-lg md:text-xl text-anime-gray mb-8">
+                <p className="text-lg md:text-xl text-white mb-8">
                   The journey of Sung Jin-Woo, the weakest hunter who becomes the strongest
                 </p>
               </motion.div>
@@ -106,18 +106,18 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Countdown Section */}
+        {/* Countdown Section - Updated design for better visibility */}
         <section className="py-16 bg-white dark:bg-anime-dark">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold mb-2">Next Episode Countdown</h2>
-                <p className="text-anime-gray">
-                  Solo Leveling Episode 9 - Premiering Saturday, March 1st at 10:00 PM
+                <p className="text-lg font-medium text-anime-purple">
+                  Solo Leveling Season 2 - Premiering Saturday, March 1st, 2025 at 10:00 PM
                 </p>
               </div>
               
-              {/* Countdown Timer */}
+              {/* Enhanced Countdown Timer */}
               <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
                 {[
                   { label: 'Days', value: timeRemaining.days },
@@ -127,28 +127,40 @@ const Home = () => {
                 ].map((item, index) => (
                   <div 
                     key={item.label}
-                    className="glass-card rounded-lg p-6 text-center"
+                    className="glass-card rounded-lg p-6 text-center shadow-lg border-2 border-anime-purple/30 hover:border-anime-purple/50 transition-all"
                   >
                     <div className="text-3xl md:text-4xl font-bold text-anime-purple">
                       {formatTime(item.value)}
                     </div>
-                    <div className="text-sm text-anime-gray mt-2">
+                    <div className="text-sm font-medium text-gray-700 dark:text-gray-300 mt-2">
                       {item.label}
                     </div>
                   </div>
                 ))}
               </div>
+
+              {/* Added season information */}
+              <div className="mt-10 text-center">
+                <p className="text-lg text-gray-700 dark:text-gray-300">
+                  Join millions of fans awaiting the return of the Shadow Monarch in Season 2!
+                </p>
+                <div className="flex justify-center mt-4">
+                  <button className="bg-anime-purple hover:bg-anime-purple/90 text-white px-6 py-2 rounded-full transition-colors">
+                    Set Reminder
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
         
-        {/* Poll Section */}
+        {/* Poll Section - Improved visibility */}
         <section className="py-16 bg-gray-50 dark:bg-anime-dark/70">
           <div className="container">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold mb-2">Community Poll</h2>
-                <p className="text-anime-gray">
+                <p className="text-lg text-gray-700 dark:text-gray-300 font-medium">
                   Do you think Sung Jin-Woo will defeat the Architect in the next episode?
                 </p>
               </div>
@@ -162,32 +174,32 @@ const Home = () => {
                     <motion.div
                       key={option}
                       className={`
-                        relative overflow-hidden rounded-lg cursor-pointer border 
+                        relative overflow-hidden rounded-lg cursor-pointer border-2
                         transition-all duration-300 glass-effect hover:shadow-md
-                        ${isSelected ? 'border-anime-purple shadow-md' : 'border-transparent'}
+                        ${isSelected ? 'border-anime-purple shadow-md' : 'border-transparent hover:border-anime-purple/30'}
                       `}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handleVote(option)}
                     >
                       <div className="relative z-10 p-4 flex justify-between items-center">
-                        <span className={`font-medium ${isSelected ? 'text-anime-purple' : ''}`}>
+                        <span className={`font-medium text-lg ${isSelected ? 'text-anime-purple' : 'text-gray-800 dark:text-white'}`}>
                           {option}
                         </span>
-                        <span className="font-medium">
+                        <span className="font-bold text-lg">
                           {percentage}%
                         </span>
                       </div>
                       
-                      {/* Progress bar */}
+                      {/* Progress bar - Enhanced */}
                       <div 
-                        className="absolute top-0 left-0 h-full bg-anime-purple/20"
+                        className={`absolute top-0 left-0 h-full ${isSelected ? 'bg-anime-purple/30' : 'bg-anime-purple/20'}`}
                         style={{ width: `${percentage}%`, transition: 'width 0.5s ease-out' }}
                       ></div>
                     </motion.div>
                   );
                 })}
                 
-                <div className="text-center text-sm text-anime-gray mt-4">
+                <div className="text-center text-base font-medium text-gray-700 dark:text-gray-300 mt-4">
                   {selectedOption 
                     ? `You voted: ${selectedOption}`
                     : "Click an option to vote"

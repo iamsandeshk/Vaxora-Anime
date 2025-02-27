@@ -35,7 +35,7 @@ const animeData = [
     rating: 4.7,
     episodes: 48,
     studio: 'MAPPA',
-    description: 'A boy swallows a cursed talisman - the finger of a demon - and becomes cursed himself. He enters a shaman school to be able to locate the demon's other body parts and thus exorcise himself.'
+    description: "A boy swallows a cursed talisman - the finger of a demon - and becomes cursed himself. He enters a shaman school to be able to locate the demon's other body parts and thus exorcise himself."
   },
   {
     id: 4,
